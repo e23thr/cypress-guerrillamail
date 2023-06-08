@@ -1,6 +1,6 @@
 # cypress-guerrillamail
 
-Add a random email generation using [guerrillamail.com](https://www.guerrillamail) and read the emails
+Add a random email generation using [guerrillamail.com](https://www.guerrillamail.com) and read the emails
 
 ## Installation
 
@@ -8,6 +8,16 @@ Add a random email generation using [guerrillamail.com](https://www.guerrillamai
 npm i -D cypress-guerrillamail
 # or
 yarn add -D cypress-guerrillamail
+```
+
+## Dependency installation
+
+cypress-guerrillamail requires [cypress-wait-until](https://www.npmjs.com/package/cypress-wait-until) as peer dependencies.
+
+```bash
+npm i -D cypress-wait-until
+# or
+yarn add -D cypress-wait-until
 ```
 
 ## Usage
@@ -24,25 +34,29 @@ import "cypress-guerrillamail";
 To get a random email address in your test script
 
 ```javascript
-cy.getTemporaryEmail().as("@randomEmail");
+cy.origin("https://www.guerrillamail.com", function () {
+  cy.getTemporaryEmail().as("@randomEmail");
+});
 ```
 
-Then you can read email using snippet below in your test script
+Then you can read email using snippet below in your test script after your site send the email to `@randomEmail`
 
 ```javascript
-cy.get("@randomEmail")
-  .then((randomEmail) => {
-    cy.getEmailList(
-      {
-        email: randomEmail,
-        sender: "<Your test site email sender>",
-        deleteAfterRead: true,
-      } /* :GetEmailListParam */
-    );
-  })
-  .then((emails /* :EmailData[] */) => {
-    // array of EmailData
-  });
+cy.origin("https://www.guerrillamail.com", function () {
+  cy.get("@randomEmail")
+    .then((randomEmail) => {
+      cy.getEmailList(
+        {
+          email: randomEmail,
+          sender: "<Your test site email sender>",
+          deleteAfterRead: true,
+        } /* :GetEmailListParam */
+      );
+    })
+    .then((emails /* :EmailData[] */) => {
+      // process emails here
+    });
+});
 ```
 
 ## Types
@@ -67,4 +81,17 @@ interface GetEmailListParam {
   sender: string;
   deleteAfterRead: boolean;
 }
+```
+
+## Note
+
+To make this module work, add experiment option `experimentalOriginDependencies` to `e2e` section in your `cypress.config.js` to get rid of origin error. (see [document](https://docs.cypress.io/guides/references/experiments))
+
+```javascript
+/// file: cypress.config.js
+module.exports = defineConfig({
+  e2e: {
+    experimentalOriginDependencies: true,
+  },
+});
 ```
