@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress", "node"],
+    "sourceMap": false,
+    "outFile": "dist/guerrillamail.js",
+    "pretty": true,
+    "declaration": true
+  },
+  "include": [
+    "cypress/**/*.ts",
+    "cypress/support/guerrillamail.js",
+    "cypress/support/e2e.js"
+  ],
+  "exclude": ["cypress/**/*.spec.ts"],
+  "files": ["cypress/support/guerrillamail.js"]
+}
