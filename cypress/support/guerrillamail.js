@@ -254,6 +254,7 @@ Cypress.Commands.add("getEmailList", (param) => {
   cy.wrap([], { log: false }).as("emailList");
 
   // change email according to args
+  cy._waitForStatusAlertDisappear();
   cy._changeEmailAddress(email);
 
   // wait for status_alert about new email
