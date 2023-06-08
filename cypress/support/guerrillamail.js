@@ -51,7 +51,7 @@ Cypress.Commands.add(
 
 Cypress.Commands.add("_waitForStatusAlertDisappear", () => {
   cy._waitForElement(".status_alert", {
-    timeout: 60_000,
+    timeout: 60000, // 60_000,
     interval: 500,
     customMessage: "Wait for status alert to disappeared",
     log: false,
@@ -258,8 +258,8 @@ Cypress.Commands.add("getEmailList", (param) => {
 
   // wait for status_alert about new email
   cy._waitForElement(".status_alert", {
-    tries: 120_000,
-    interval: 1_000,
+    tries: 120000, // 120_000,
+    interval: 1000, // 1_000,
     check: (element) => {
       let hasNewMail = false;
       element.each((idx) => {
