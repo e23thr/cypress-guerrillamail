@@ -1,6 +1,6 @@
 {
   "name": "cypress-guerrillamail",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "cypress/support/guerrillamail.js",
   "types": "cypress/support/index.d.ts",

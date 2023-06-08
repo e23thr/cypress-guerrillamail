@@ -51,7 +51,7 @@ Cypress.Commands.add(
 
 Cypress.Commands.add("_waitForStatusAlertDisappear", () => {
   cy._waitForElement(".status_alert", {
-    timeout: 60_000,
+    timeout: 60000, // 60_000,
     interval: 500,
     customMessage: "Wait for status alert to disappeared",
     log: false,
@@ -246,45 +246,46 @@ Cypress.Commands.add("getTemporaryEmail", function () {
     });
 });
 
-Cypress.Commands.add(
-  "getEmailList",
-  (myEmail, sender, deleteAfterRead = false) => {
-    cy._visitInbox();
-    cy.wrap([], { log: false }).as("emailList");
+Cypress.Commands.add("getEmailList", (param) => {
+  const sender = param.sender;
+  const email = param.email;
+  const deleteAfterRead = param.deleteAfterRead;
+  cy._visitInbox();
+  cy.wrap([], { log: false }).as("emailList");
 
-    // change email according to args
-    cy._changeEmailAddress(myEmail);
+  // change email according to args
+  cy._waitForStatusAlertDisappear();
+  cy._changeEmailAddress(email);
 
-    // wait for status_alert about new email
-    cy._waitForElement(".status_alert", {
-      tries: 120_000,
-      interval: 1_000,
-      check: (element) => {
-        let hasNewMail = false;
-        element.each((idx) => {
-          const _text = element[idx].innerText.toLowerCase();
-          if (_text.includes("got new mail")) {
-            hasNewMail = true;
-          }
+  // wait for status_alert about new email
+  cy._waitForElement(".status_alert", {
+    tries: 120000, // 120_000,
+    interval: 1000, // 1_000,
+    check: (element) => {
+      let hasNewMail = false;
+      element.each((idx) => {
+        const _text = element[idx].innerText.toLowerCase();
+        if (_text.includes("got new mail")) {
+          hasNewMail = true;
+        }
+      });
+      return hasNewMail;
+    },
+  });
+
+  cy._getAllEmailFrom(sender).then((emailList) => {
+    //
+    const idList = emailList.map(({ id }) => id);
+    const results = [];
+    cy.wrap(idList, { log: false })
+      .each((id) => {
+        cy._readEmailById(id, deleteAfterRead).then((data) => {
+          results.push(data);
         });
-        return hasNewMail;
-      },
-    });
-
-    cy._getAllEmailFrom(sender).then((emailList) => {
-      //
-      const idList = emailList.map(({ id }) => id);
-      const results = [];
-      cy.wrap(idList, { log: false })
-        .each((id) => {
-          cy._readEmailById(id, deleteAfterRead).then((data) => {
-            results.push(data);
-          });
-        })
-        .then(() => {
-          expect(results).instanceOf(Array).to.have.length.gt(0);
-          cy.wrap(results, { log: false });
-        });
-    });
-  }
-);
+      })
+      .then(() => {
+        expect(results).instanceOf(Array).to.have.length.gt(0);
+        cy.wrap(results, { log: false });
+      });
+  });
+});
