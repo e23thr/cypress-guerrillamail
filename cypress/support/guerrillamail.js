@@ -155,7 +155,6 @@ Cypress.Commands.add("_readEmailById", (id, deleteAfterRead = false) => {
         .get("@emailLinks", { log: false })
         .then((emailLinks) => {
           links = emailLinks;
-          console.log("debug:links", links);
         })
         .then(() => {
           const data = {
@@ -165,7 +164,6 @@ Cypress.Commands.add("_readEmailById", (id, deleteAfterRead = false) => {
             emailHtml,
             links,
           };
-          console.log("debug:data-wrap", data);
           cy.wrap(data, { log: false });
         });
     })
