@@ -36,12 +36,12 @@
 //   }
 // }
 
-interface LinkData {
+export interface LinkData {
   text: string;
   href: string;
 }
 
-interface EmailData {
+export interface EmailData {
   subject: string;
   date: string;
   textContent: string;
@@ -50,14 +50,14 @@ interface EmailData {
   links: LinkData[];
 }
 
-interface GetEmailListParam {
+export interface GetEmailListParam {
   email: string;
   sender: string;
   deleteAfterRead: boolean;
 }
 
 declare namespace Cypress {
-  interface Chainable {
+  interface Chainable<Any> {
     /**
      * Get a temporary email address
      * @param
