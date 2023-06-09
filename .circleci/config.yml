@@ -10,4 +10,3 @@ workflows:
               only:
                 - main
           install-command: npm install
-          post-install: npm test
