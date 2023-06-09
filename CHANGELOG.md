@@ -9,6 +9,7 @@ _Released 09/06/2023_
 - Add this changelog
 - Add test script
 - Update readme
+- Change CI to release branch
 
 ## 0.0.3
 
