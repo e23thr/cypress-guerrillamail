@@ -1,6 +1,6 @@
 # cypress-guerrillamail
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/e23thr/cypress-guerrillamail/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/e23thr/cypress-guerrillamail/tree/main)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/e23thr/cypress-guerrillamail/tree/release.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/e23thr/cypress-guerrillamail/tree/release)
 
 ## Introduction
 
