@@ -1,6 +1,23 @@
 # cypress-guerrillamail
 
-Add a random email generation using [guerrillamail.com](https://www.guerrillamail.com) and read the emails
+## Introduction
+
+A Cypress plugin to generate random email, using [guerrillamail.com](https://www.guerrillamail.com) and read its mail box that could be used for automated testing.
+
+## Background / Context
+
+Many testing scenarios such as user registration or forgot password, the target web app of the testing sends email for verification or multi factor authentication.
+Such scenarios limits capability to automated testing as testers requires multiple email addresses and connect to those email inboxes via API or other methods to read its content.
+To overcome this challenge, an random generated and disposable email address along with a capability to easily access its inbox would be preferrable.
+
+In this plugin, we are using [guerrillamail.com](https://www.guerrillamail.com) to generate email addresses and read its inbox.
+Please note that there are several disposable emails services available as the following:
+- https://www.minuteinbox.com/
+- https://temp-mail.org/
+- https://tempmailo.com/
+- https://tempail.com
+- https://mail.tm
+- https://temp-mail.io
 
 ## Installation
 
@@ -95,3 +112,7 @@ module.exports = defineConfig({
   },
 });
 ```
+
+## TODO
+
+- [ ] Submit this as a plugin in Cypress [Link](https://github.com/cypress-io/cypress-documentation/blob/main/CONTRIBUTING.md#adding-plugins)
