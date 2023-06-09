@@ -1,5 +1,7 @@
 # cypress-guerrillamail
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/e23thr/cypress-guerrillamail/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/e23thr/cypress-guerrillamail/tree/main)
+
 ## Introduction
 
 A Cypress plugin to generate random email, using [guerrillamail.com](https://www.guerrillamail.com) and read its mail box that could be used for automated testing.
