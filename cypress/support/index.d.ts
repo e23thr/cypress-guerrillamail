@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
@@ -56,34 +57,36 @@ export interface GetEmailListParam {
   deleteAfterRead: boolean;
 }
 
-declare namespace Cypress {
-  interface Chainable<Any> {
-    /**
-     * Get a temporary email address
-     * @param
-     * (no parameters)
-     *
-     * @returns
-     * yield email address (string)
-     *
-     * @example
-     * cy.getTemporaryEmail().then((emailAddress) => cy.log("Email address, emailAddress))
-     */
-    getTemporaryEmail(): Chainable<string>;
+declare global {
+  namespace Cypress {
+    interface Chainable<Subject = any> {
+      /**
+       * Get a temporary email address
+       * @param
+       * (no parameters)
+       *
+       * @returns
+       * yield email address (string)
+       *
+       * @example
+       * cy.getTemporaryEmail().then((emailAddress) => cy.log("Email address, emailAddress))
+       */
+      getTemporaryEmail(): Chainable<string>;
 
-    /**
-     * Get list of emails with links
-     *
-     * @param
-     * param: GetEmailListParam
-     *
-     * @returns
-     * Chainable<EmailData[]>
-     *
-     * @example
-     * cy.getEmailList
-     *
-     */
-    getEmailList(param: GetEmailListParam): Chainable<EmailData[]>;
+      /**
+       * Get list of emails with links
+       *
+       * @param
+       * param: GetEmailListParam
+       *
+       * @returns
+       * Chainable<EmailData[]>
+       *
+       * @example
+       * cy.getEmailList
+       *
+       */
+      getEmailList(param: GetEmailListParam): Chainable<EmailData[]>;
+    }
   }
 }
