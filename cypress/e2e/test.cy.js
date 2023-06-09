@@ -4,7 +4,7 @@
 
 const dummyEmailAddress = "e23thr-dummy@guerrillamail.org";
 
-describe("Get a temporary email address", function () {
+describe("cypress-guerrillamail", function () {
   it("should visit https://www.guerrillamail.com", function () {
     cy.visit("/", { log: false });
     cy.url().should("match", /^https?:\/\/(www.?)?guerrillamail.com/);

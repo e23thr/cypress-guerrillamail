@@ -6,7 +6,8 @@
   "types": "cypress/support/index.d.ts",
   "scripts": {
     "cypress:open": "cypress open --e2e",
-    "cypress:run": "cypress run --e2e"
+    "cypress:run": "cypress run --e2e",
+    "test": "npm run cypress:run"
   },
   "repository": {
     "type": "git",

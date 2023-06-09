@@ -1,0 +1,12 @@
+version: "2.1"
+orbs:
+  cypress: cypress-io/cypress@3
+workflows:
+  test:
+    branches:
+      only:
+        - main
+    jobs:
+      - cypress/run:
+          install-command: npm install
+          post-install: npm test
