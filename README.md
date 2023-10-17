@@ -47,6 +47,7 @@ import this module in `cypress/support/e2e.js`
 
 ```javascript
 // file: cypress/support/e2e.js
+import "cypress-wait-until";
 import "cypress-guerrillamail";
 ```
 
