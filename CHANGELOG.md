@@ -1,6 +1,13 @@
 ---
 title: Changelog
 ---
+## 0.0.6
+  - Update cypress version to v.13.12
+  - Update cypress-wait-until to v.3.0.1
+  - Update dev dependencies
+
+## 0.0.5
+  - Update cypress version to v.13.6 (Thanks to [bs2205](https://github.com/bs2205) for your PR)
 
 ## 0.0.4
 _Released 09/06/2023_

@@ -1,6 +1,6 @@
 {
   "name": "cypress-guerrillamail",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "Cypress plugin that helps manipulate login/forgot password flow",
   "main": "cypress/support/guerrillamail.js",
   "types": "cypress/support/index.d.ts",
@@ -29,11 +29,11 @@
   },
   "homepage": "https://github.com/e23thr/cypress-guerrillamail#readme",
   "devDependencies": {
-    "rimraf": "^5.0.5",
-    "typescript": "^5.2.2"
+    "rimraf": "^5.0.7",
+    "typescript": "^5.4.5"
   },
   "peerDependencies": {
-    "cypress": "^12.14.0",
-    "cypress-wait-until": "^1.7.2"
+    "cypress": "^13.12.0",
+    "cypress-wait-until": "^3.0.1"
   }
 }
