@@ -1,6 +1,6 @@
 {
   "name": "cypress-guerrillamail",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Cypress plugin that helps manipulate login/forgot password flow",
   "main": "cypress/support/guerrillamail.js",
   "types": "cypress/support/index.d.ts",

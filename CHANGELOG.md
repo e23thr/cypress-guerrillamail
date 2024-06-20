@@ -2,6 +2,9 @@
 title: Changelog
 ---
 
+## 0.0.5
+  - Bump cypress version to v.13.6 (Thanks to [bs2205](https://github.com/bs2205) for your PR)
+
 ## 0.0.4
 _Released 09/06/2023_
 
