@@ -10,3 +10,4 @@ workflows:
               only:
                 - release
           install-command: npm install
+          start-command: npm test
