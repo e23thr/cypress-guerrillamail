@@ -21,7 +21,8 @@
   ],
   "author": "Praphan Oranphanlert (https://github.com/e23thr)",
   "contributors": [
-    "PhakphumV (https://github.com/PhakphumV)"
+    "PhakphumV (https://github.com/PhakphumV)",
+    "bs2205 (https://github.com/bs2205)"
   ],
   "license": "ISC",
   "bugs": {
@@ -29,11 +30,11 @@
   },
   "homepage": "https://github.com/e23thr/cypress-guerrillamail#readme",
   "devDependencies": {
-    "rimraf": "^5.0.7",
-    "typescript": "^5.4.5"
+    "rimraf": "^6.0.1",
+    "typescript": "^5.9.2"
   },
   "peerDependencies": {
-    "cypress": "^13.12.0",
-    "cypress-wait-until": "^3.0.1"
+    "cypress": "^15.2.0",
+    "cypress-wait-until": "^3.0.2"
   }
 }
